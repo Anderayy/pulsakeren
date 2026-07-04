@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" role="img" aria-label="QRIS">
+  <rect width="360" height="160" rx="28" fill="#fff"/>
+  <path d="M45 38h35v35H45zM91 38h13v13H91zM116 38h35v35h-35zM45 85h13v13H45zM69 85h35v35H69zM116 85h13v13h-13zM138 85h13v13h-13zM45 109h13v13H45zM116 109h35v13h-35z" fill="#111827"/>
+  <text x="178" y="95" fill="#b12675" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900">QRIS</text>
+</svg>

@@ -1,0 +1,229 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  MENUNGGU_PEMBAYARAN
+  DIBAYAR
+  DIPROSES
+  BERHASIL
+  GAGAL
+  DIKEMBALIKAN
+}
+
+enum ProductStatus {
+  AKTIF
+  GANGGUAN
+  STOK_TIPIS
+}
+
+model User {
+  id            String         @id @default(cuid())
+  name          String
+  email         String         @unique
+  passwordHash  String
+  phone         String?
+  balance       Decimal        @default(0)
+  points        Int            @default(0)
+  orders        Order[]
+  deposits      Deposit[]
+  notifications Notification[]
+  tickets       SupportTicket[]
+  vouchers      Voucher[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Admin {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String
+  roleId       String
+  role         Role       @relation(fields: [roleId], references: [id])
+  auditLogs    AuditLog[]
+  createdAt    DateTime   @default(now())
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  permissions Json
+  admins      Admin[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  products    Product[]
+}
+
+model Provider {
+  id       String    @id @default(cuid())
+  name     String
+  code     String    @unique
+  products Product[]
+}
+
+model Product {
+  id          String           @id @default(cuid())
+  name        String
+  slug        String           @unique
+  description String?
+  categoryId  String
+  providerId  String
+  category    Category         @relation(fields: [categoryId], references: [id])
+  provider    Provider         @relation(fields: [providerId], references: [id])
+  variants    ProductVariant[]
+  status      ProductStatus    @default(AKTIF)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model ProductVariant {
+  id          String      @id @default(cuid())
+  productId   String
+  product     Product     @relation(fields: [productId], references: [id])
+  name        String
+  nominal     Int
+  costPrice   Decimal
+  sellPrice   Decimal
+  margin      Decimal
+  adminFee    Decimal     @default(0)
+  voucherStock Int        @default(0)
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id            String       @id @default(cuid())
+  invoiceNumber String       @unique
+  userId        String?
+  user          User?        @relation(fields: [userId], references: [id])
+  target        String
+  status        OrderStatus  @default(MENUNGGU_PEMBAYARAN)
+  subtotal      Decimal
+  adminFee      Decimal
+  discount      Decimal      @default(0)
+  total         Decimal
+  items         OrderItem[]
+  payment       Payment?
+  auditLogs     AuditLog[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model OrderItem {
+  id        String         @id @default(cuid())
+  orderId   String
+  order     Order          @relation(fields: [orderId], references: [id])
+  variantId String
+  variant   ProductVariant @relation(fields: [variantId], references: [id])
+  quantity  Int            @default(1)
+  price     Decimal
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  orderId   String   @unique
+  order     Order    @relation(fields: [orderId], references: [id])
+  method    String
+  gateway   String
+  reference String?
+  amount    Decimal
+  status    String
+  paidAt    DateTime?
+  createdAt DateTime @default(now())
+}
+
+model Deposit {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Decimal
+  method    String
+  status    String
+  createdAt DateTime @default(now())
+}
+
+model Promotion {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  title     String
+  discount  Decimal
+  startsAt  DateTime
+  endsAt    DateTime
+  isActive  Boolean  @default(true)
+}
+
+model Voucher {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  code      String   @unique
+  value     Decimal
+  expiresAt DateTime
+  usedAt    DateTime?
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  title     String
+  body      String
+  channel   String
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+}
+
+model SupportTicket {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  subject   String
+  message   String
+  status    String
+  createdAt DateTime @default(now())
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Banner {
+  id        String   @id @default(cuid())
+  title     String
+  imageUrl  String
+  linkUrl   String?
+  isActive  Boolean  @default(true)
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value Json
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  adminId   String?
+  admin     Admin?   @relation(fields: [adminId], references: [id])
+  orderId   String?
+  order     Order?   @relation(fields: [orderId], references: [id])
+  action    String
+  metadata  Json?
+  createdAt DateTime @default(now())
+}

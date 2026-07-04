@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-label="Free Fire">
+  <rect width="360" height="120" rx="28" fill="#111827"/>
+  <text x="38" y="75" fill="#ffffff" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="2">FREE</text>
+  <text x="185" y="75" fill="#f59e0b" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="2">FIRE</text>
+  <path d="M241 30l18 0-13 28h18l-41 38 13-30h-18z" fill="#f97316"/>
+</svg>

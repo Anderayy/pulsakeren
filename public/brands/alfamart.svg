@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" role="img" aria-label="Alfamart">
+  <rect width="360" height="160" rx="28" fill="#fff"/>
+  <rect x="34" y="38" width="292" height="84" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <path d="M54 56h252v16H54z" fill="#dc2626"/>
+  <path d="M54 78h252v12H54z" fill="#facc15"/>
+  <path d="M54 96h252v12H54z" fill="#2563eb"/>
+  <text x="75" y="91" fill="#dc2626" font-family="Arial Black, Arial, sans-serif" font-size="38" font-weight="900">Alfamart</text>
+</svg>

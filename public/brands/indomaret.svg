@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" role="img" aria-label="Indomaret">
+  <rect width="360" height="160" rx="28" fill="#fff"/>
+  <rect x="34" y="35" width="292" height="90" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="4"/>
+  <rect x="48" y="48" width="264" height="20" rx="4" fill="#e11d48"/>
+  <rect x="48" y="70" width="264" height="20" rx="4" fill="#facc15"/>
+  <rect x="48" y="92" width="264" height="20" rx="4" fill="#2563eb"/>
+  <text x="76" y="88" fill="#111827" font-family="Arial Black, Arial, sans-serif" font-size="34" font-weight="900">INDOMARET</text>
+</svg>

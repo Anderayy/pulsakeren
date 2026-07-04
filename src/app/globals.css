@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050816;
+  --foreground: #e6f6ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(0, 229, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.22), transparent 30%),
+    linear-gradient(180deg, #050816 0%, #07111f 46%, #050816 100%);
+  color: var(--foreground);
+  font-family: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.digital-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glass {
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  background: rgba(8, 18, 34, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.glow-line {
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.75), rgba(167, 139, 250, 0.8), transparent);
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.18); }
+  50% { box-shadow: 0 0 38px rgba(34, 211, 238, 0.36); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+.animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulse-glow 3.6s ease-in-out infinite;
+}
+
+.ticker {
+  animation: ticker 24s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

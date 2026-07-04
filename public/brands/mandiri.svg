@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" role="img" aria-label="Mandiri">
+  <rect width="360" height="160" rx="28" fill="#ffffff"/>
+  <path d="M50 58c45-23 87-22 126 3 35 22 75 20 134-5v18c-56 25-99 26-136 2-38-24-78-25-124-1z" fill="#fbbf24"/>
+  <text x="54" y="112" fill="#184b9b" font-family="Arial Black, Arial, sans-serif" font-size="50" font-weight="900">mandiri</text>
+</svg>
