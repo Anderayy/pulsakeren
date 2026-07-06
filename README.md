@@ -1,6 +1,6 @@
-# PulsaKeren Static Website
+# Pulsakerenzz Static Website
 
-Website PPOB static untuk `pulsakeren.com`.
+Website PPOB static untuk `pulsakerenzz.com`.
 
 ## Struktur
 
