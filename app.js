@@ -154,7 +154,7 @@ function renderProducts() {
       renderSelect();
       syncInvoice();
       $("#quickOrder")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      toast("Produk masuk checkout", `${selectedProduct.name} siap dibuat invoice.`);
+      toast("Produk dipilih", `${selectedProduct.name} siap dicek sebelum bayar.`);
     });
   });
 }
@@ -178,7 +178,7 @@ function renderFlashRow() {
       renderSelect();
       syncInvoice();
       $("#quickOrder")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      toast("Flash sale dipilih", `${selectedProduct.name} masuk checkout.`);
+      toast("Flash sale dipilih", `${selectedProduct.name} siap dicek sebelum bayar.`);
     });
   });
 }
