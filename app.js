@@ -159,6 +159,30 @@ function renderProducts() {
   });
 }
 
+function renderFlashRow() {
+  const wrap = $("#flashRow");
+  if (!wrap) return;
+  wrap.innerHTML = products.slice(0, 4).map((item) => `
+    <button class="flash-item" type="button" data-product="${item.id}">
+      <img src="assets/brands/${item.logo}" alt="${item.name}" loading="lazy">
+      <strong>${item.name}</strong>
+      <span>${rupiah(item.price)}</span>
+    </button>
+  `).join("");
+  wrap.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      selectedProduct = products.find((item) => item.id === btn.dataset.product) || products[0];
+      activeCategory = selectedProduct.category;
+      renderTabs();
+      renderSideFilter();
+      renderSelect();
+      syncInvoice();
+      $("#quickOrder")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      toast("Flash sale dipilih", `${selectedProduct.name} masuk checkout.`);
+    });
+  });
+}
+
 function syncInvoice() {
   const subtotal = selectedProduct.price;
   const admin = 500;
@@ -191,6 +215,7 @@ function init() {
   renderTabs();
   renderCategoryShowcase();
   renderSideFilter();
+  renderFlashRow();
   renderSelect();
   renderProducts();
   renderTicker();

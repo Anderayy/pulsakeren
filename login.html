@@ -11,17 +11,28 @@
   </head>
   <body class="auth-page">
     <main class="auth-shell">
-      <a class="brand" href="index.html"><span class="brand-mark">PK</span><span><strong>PulsaKeren</strong><small>.com</small></span></a>
+      <section class="auth-visual">
+        <a class="brand" href="index.html"><span class="brand-bag">PK</span><span><strong>PulsaKeren</strong><small>.com</small></span></a>
+        <h1>Masuk, cek saldo, dan belanja produk digital favorit.</h1>
+        <div class="auth-benefits">
+          <span>Voucher member</span>
+          <span>Riwayat pesanan</span>
+          <span>Nomor tersimpan</span>
+          <span>Admin demo</span>
+        </div>
+      </section>
+
       <section class="auth-card">
-        <span class="pill">Demo login</span>
-        <h1>Masuk ke PulsaKeren</h1>
-        <p>Halaman static. Tombol login akan membuka dashboard user, sedangkan admin membuka CMS demo.</p>
+        <span class="badge">Demo login static</span>
+        <h1>Selamat datang kembali</h1>
+        <p>Tombol masuk membuka dashboard user. Tombol admin membuka CMS demo tanpa backend.</p>
         <form onsubmit="event.preventDefault(); location.href='dashboard.html';">
           <label><span>Email / nomor HP</span><input type="text" value="budi@pulsakeren.com" /></label>
           <label><span>Password</span><input type="password" value="password" /></label>
-          <button class="primary-btn full" type="submit">Masuk Dashboard</button>
+          <button class="solid-link full" type="submit">Masuk Dashboard</button>
         </form>
-        <a class="secondary-btn full" href="admin.html">Masuk Admin CMS</a>
+        <a class="outline-link full" href="admin.html">Masuk Admin CMS</a>
+        <a class="ghost-link" href="index.html">Kembali ke marketplace</a>
       </section>
     </main>
   </body>

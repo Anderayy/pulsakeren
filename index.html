@@ -47,37 +47,36 @@
     </header>
 
     <main>
-      <section class="shopping-hero">
-        <div class="hero-board">
-          <div class="hero-copy">
-            <span class="badge">Marketplace PPOB siap pakai</span>
-            <h1>Top up digital dibuat seperti belanja online.</h1>
-            <p>Pilih produk, bandingkan harga, lihat promo, lalu checkout cepat. Semua data masih dummy static, tapi alurnya dibuat terasa seperti marketplace aktif.</p>
-            <div class="hero-actions">
-              <a class="solid-link big" href="#quickOrder">Mulai transaksi</a>
-              <a class="outline-link big" href="#catalog">Lihat produk</a>
+      <section class="shop-front">
+        <aside class="shop-menu">
+          <strong>Kategori Belanja</strong>
+          <a href="#catalog" data-cat-link="Pulsa"><span>SIM</span>Pulsa semua operator</a>
+          <a href="#catalog" data-cat-link="Data"><span>GB</span>Paket data internet</a>
+          <a href="#catalog" data-cat-link="PLN"><span>PLN</span>Token dan tagihan PLN</a>
+          <a href="#catalog" data-cat-link="E-Wallet"><span>PAY</span>Top up e-wallet</a>
+          <a href="#catalog" data-cat-link="Games"><span>GG</span>Voucher game</a>
+          <a href="#catalog" data-cat-link="Entertainment"><span>TV</span>Streaming & gift card</a>
+        </aside>
+
+        <div class="shop-center">
+          <div class="mall-banner">
+            <div>
+              <span class="badge">PulsaKeren Mall</span>
+              <h1>Belanja pulsa, kuota, voucher, dan tagihan harian.</h1>
+              <p>Checkout cepat, promo dummy, katalog lengkap, dan dashboard statis untuk demo marketplace PPOB.</p>
+              <a class="solid-link big" href="#quickOrder">Mulai belanja</a>
             </div>
+            <img src="assets/images/promo-ewallet.png" alt="Promo produk digital PulsaKeren" loading="eager" />
           </div>
-          <div class="hero-deals" aria-label="Promo berjalan">
-            <article>
-              <span>Flash voucher</span>
-              <strong>GoPay 50K</strong>
-              <small>Rp 51.000</small>
-            </article>
-            <article>
-              <span>Terlaris</span>
-              <strong>Telkomsel 50K</strong>
-              <small>12.840 order</small>
-            </article>
-            <article>
-              <span>Game week</span>
-              <strong>MLBB 284 Diamonds</strong>
-              <small>Rp 84.000</small>
-            </article>
+          <div class="voucher-row">
+            <a href="#deals"><strong>Cashback 30%</strong><span>Ambil voucher</span></a>
+            <a href="#catalog"><strong>Flash Sale</strong><span>Produk mulai Rp 2.500</span></a>
+            <a href="dashboard.html"><strong>Member Club</strong><span>Cek saldo & poin</span></a>
           </div>
+          <div class="flash-row" id="flashRow"></div>
         </div>
 
-        <aside class="hero-cart" id="quickOrder">
+        <aside class="hero-cart shop-checkout" id="quickOrder">
           <div class="cart-head">
             <span class="cart-icon">+</span>
             <div>
