@@ -249,6 +249,28 @@
       </nav>
     </footer>
 
+    <div class="order-modal" id="orderModal" hidden>
+      <div class="order-backdrop" data-close-order></div>
+      <section class="order-dialog" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+        <button class="order-close" type="button" data-close-order aria-label="Tutup ringkasan">×</button>
+        <span class="badge">Ringkasan order</span>
+        <h2 id="orderTitle">Pastikan pesanan sudah benar</h2>
+        <p>Setelah data sesuai, lanjut login untuk menyimpan invoice dan menyelesaikan pembayaran.</p>
+        <dl class="order-summary-list">
+          <div><dt>Produk</dt><dd id="modalProduct">Telkomsel 50K</dd></div>
+          <div><dt>Nomor / ID</dt><dd id="modalTarget">0812xxxx</dd></div>
+          <div><dt>Metode bayar</dt><dd id="modalPayment">QRIS All Pay</dd></div>
+          <div><dt>Harga produk</dt><dd id="modalPrice">Rp 50.650</dd></div>
+          <div><dt>Diskon marketplace</dt><dd>-Rp 1.000</dd></div>
+          <div class="grand"><dt>Total bayar</dt><dd id="modalTotal">Rp 50.150</dd></div>
+        </dl>
+        <div class="order-actions">
+          <button class="outline-link" type="button" data-close-order>Ubah pesanan</button>
+          <button class="solid-link" id="modalLoginButton" type="button">Login untuk Bayar</button>
+        </div>
+      </section>
+    </div>
+
     <div class="toast-stack" id="toastStack"></div>
     <script src="app.js"></script>
   </body>

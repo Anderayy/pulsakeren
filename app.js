@@ -192,6 +192,33 @@ function syncInvoice() {
   $("#invoiceTotal").textContent = rupiah(subtotal + admin - discount);
 }
 
+function openOrderSummary() {
+  const customer = $("#customerInput").value.trim();
+  const payment = $("#paymentSelect")?.value || "QRIS All Pay";
+  const total = selectedProduct.price + 500 - 1000;
+  const params = new URLSearchParams({
+    product: selectedProduct.name,
+    target: customer,
+    price: String(selectedProduct.price),
+    payment,
+  });
+
+  $("#modalProduct").textContent = selectedProduct.name;
+  $("#modalTarget").textContent = customer;
+  $("#modalPayment").textContent = payment;
+  $("#modalPrice").textContent = rupiah(selectedProduct.price);
+  $("#modalTotal").textContent = rupiah(total);
+  $("#modalLoginButton").onclick = () => {
+    location.href = `login.html?next=checkout&${params.toString()}`;
+  };
+  $("#orderModal").hidden = false;
+}
+
+function closeOrderSummary() {
+  const modal = $("#orderModal");
+  if (modal) modal.hidden = true;
+}
+
 function renderTicker() {
   const ticker = $("#ticker");
   if (!ticker) return;
@@ -233,15 +260,9 @@ function init() {
   });
   $("#quickForm")?.addEventListener("submit", (event) => {
     event.preventDefault();
-    const customer = $("#customerInput").value.trim();
-    const params = new URLSearchParams({
-      product: selectedProduct.name,
-      target: customer,
-      price: String(selectedProduct.price),
-      payment: $("#paymentSelect")?.value || "QRIS All Pay",
-    });
-    location.href = `checkout.html?${params.toString()}`;
+    openOrderSummary();
   });
+  document.querySelectorAll("[data-close-order]").forEach((button) => button.addEventListener("click", closeOrderSummary));
 
   setInterval(renderTicker, 3600);
   setTimeout(() => toast("Order baru", "Dewi - Bandung membeli Token PLN 100K."), 900);
