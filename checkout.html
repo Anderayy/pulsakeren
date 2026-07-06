@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Pulsakerenzz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="checkout-page">
+      <section class="checkout-main">
+        <a class="brand" href="index.html"><span class="brand-bag">PK</span><span><strong>Pulsakerenzz</strong><small>.com</small></span></a>
+        <div class="checkout-steps">
+          <span class="done">Invoice</span>
+          <span class="active">Pembayaran</span>
+          <span>Diproses</span>
+          <span>Selesai</span>
+        </div>
+        <div class="payment-panel">
+          <span class="badge">Pilih metode pembayaran</span>
+          <h1>Bayar pesanan digital Anda</h1>
+          <div class="pay-method-grid">
+            <button class="active" data-method="QRIS All Pay">QRIS All Pay</button>
+            <button data-method="GoPay">GoPay</button>
+            <button data-method="OVO">OVO</button>
+            <button data-method="BCA Virtual Account">BCA VA</button>
+            <button data-method="Alfamart">Alfamart</button>
+            <button data-method="Indomaret">Indomaret</button>
+          </div>
+          <button class="solid-link full" id="payNow" type="button">Login untuk Bayar</button>
+          <a class="outline-link full" href="index.html#quickOrder">Ubah pesanan</a>
+        </div>
+      </section>
+      <aside class="checkout-summary">
+        <span class="badge">Invoice aktif</span>
+        <h2 id="sumProduct">Telkomsel 50K</h2>
+        <p id="sumTarget">0812xxxx</p>
+        <dl>
+          <div><dt>Harga produk</dt><dd id="sumPrice">Rp 50.650</dd></div>
+          <div><dt>Biaya layanan</dt><dd>Rp 500</dd></div>
+          <div><dt>Promo</dt><dd>-Rp 1.000</dd></div>
+          <div class="grand"><dt>Total bayar</dt><dd id="sumTotal">Rp 50.150</dd></div>
+        </dl>
+        <div class="invoice-status" id="invoiceStatus">Menunggu pembayaran</div>
+      </aside>
+    </main>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const product = params.get("product") || "Telkomsel 50K";
+      const target = params.get("target") || "0812xxxx";
+      const price = Number(params.get("price") || 50650);
+      const rupiah = (value) => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(value);
+      document.querySelector("#sumProduct").textContent = product;
+      document.querySelector("#sumTarget").textContent = target;
+      document.querySelector("#sumPrice").textContent = rupiah(price);
+      document.querySelector("#sumTotal").textContent = rupiah(price + 500 - 1000);
+      document.querySelectorAll("[data-method]").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll("[data-method]").forEach((item) => item.classList.remove("active"));
+          button.classList.add("active");
+        });
+      });
+      document.querySelector("#payNow").addEventListener("click", () => {
+        location.href = "login.html?next=checkout";
+      });
+    </script>
+  </body>
+</html>

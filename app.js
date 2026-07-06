@@ -234,7 +234,13 @@ function init() {
   $("#quickForm")?.addEventListener("submit", (event) => {
     event.preventDefault();
     const customer = $("#customerInput").value.trim();
-    toast("Invoice dibuat", `${selectedProduct.name} untuk ${customer} menunggu pembayaran.`);
+    const params = new URLSearchParams({
+      product: selectedProduct.name,
+      target: customer,
+      price: String(selectedProduct.price),
+      payment: $("#paymentSelect")?.value || "QRIS All Pay",
+    });
+    location.href = `checkout.html?${params.toString()}`;
   });
 
   setInterval(renderTicker, 3600);
