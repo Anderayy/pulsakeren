@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard User - PulsaKeren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dash-layout">
+      <aside class="dash-sidebar">
+        <a class="brand" href="index.html"><span class="brand-mark">PK</span><span><strong>PulsaKeren</strong><small>Dashboard</small></span></a>
+        <button class="dash-nav active" data-panel="summary">Ringkasan</button>
+        <button class="dash-nav" data-panel="deposit">Deposit</button>
+        <button class="dash-nav" data-panel="history">Riwayat</button>
+        <button class="dash-nav" data-panel="saved">Nomor Tersimpan</button>
+        <button class="dash-nav" data-panel="voucher">Voucher</button>
+        <button class="dash-nav" data-panel="referral">Referral</button>
+        <button class="dash-nav" data-panel="api">API Bisnis</button>
+        <a class="dash-nav" href="index.html">Keluar</a>
+      </aside>
+      <section class="dash-content">
+        <div class="dash-top"><div><span class="pill">Dashboard user</span><h1>Halo, Budi Santoso</h1></div><button class="primary-btn" id="newOrder">Transaksi Baru</button></div>
+        <div class="panel active" id="summary">
+          <div class="stat-card gradient"><span>Saldo aktif</span><strong>Rp 1.250.000</strong><p>Siap dipakai untuk transaksi harian.</p></div>
+          <div class="mini-grid"><article><strong>18</strong><span>Transaksi bulan ini</span></article><article><strong>Rp 428.500</strong><span>Pengeluaran</span></article><article><strong>4</strong><span>Produk favorit</span></article></div>
+        </div>
+        <div class="panel" id="deposit"><h2>Deposit saldo</h2><p>Pilih nominal dummy untuk menambah saldo.</p><div class="nominal-row"><button>Rp 50.000</button><button>Rp 100.000</button><button>Rp 500.000</button></div></div>
+        <div class="panel" id="history"><h2>Riwayat transaksi</h2><table><tr><th>Invoice</th><th>Produk</th><th>Status</th><th>Total</th></tr><tr><td>PK-88241</td><td>GoPay 50K</td><td><span class="badge green">Berhasil</span></td><td>Rp 51.000</td></tr><tr><td>PK-88242</td><td>Token PLN 100K</td><td><span class="badge">Diproses</span></td><td>Rp 100.500</td></tr></table></div>
+        <div class="panel" id="saved"><h2>Nomor tersimpan</h2><div class="list-card">Budi - 0812-3456-7890</div><div class="list-card">Meter PLN Rumah - 53210988712</div></div>
+        <div class="panel" id="voucher"><h2>Voucher</h2><div class="coupon">PKCASH30 - Cashback 30%</div><div class="coupon">GAMEHEMAT - Diskon voucher game</div></div>
+        <div class="panel" id="referral"><h2>Referral</h2><p>Kode referral: <strong>PULSAKRN</strong></p><button class="secondary-btn">Salin kode</button></div>
+        <div class="panel" id="api"><h2>API bisnis</h2><p>API key dummy: <code>pk_live_demo_9241</code></p><label><span>Webhook URL</span><input type="url" value="https://domainanda.com/webhook" /></label></div>
+      </section>
+    </main>
+    <div class="toast-stack" id="toastStack"></div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

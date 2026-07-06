@@ -1,44 +1,31 @@
-# pulsakeren
+# PulsaKeren Static Website
 
-Website PPOB full-stack berbasis Next.js App Router, TypeScript, Tailwind CSS, Prisma, dan PostgreSQL. Desain default menggunakan konsep dark futuristic untuk domain `pulsakeren.com`.
+Website PPOB static untuk `pulsakeren.com`.
 
-## Jalankan Lokal
+## Struktur
 
-```bash
-npm install
-cp .env.example .env
-npm run db:generate
-npm run dev
-```
+- `index.html` - homepage marketplace PPOB
+- `login.html` - login demo
+- `dashboard.html` - dashboard user statis interaktif
+- `admin.html` - admin CMS statis interaktif
+- `styles.css` - seluruh style
+- `app.js`, `dashboard.js`, `admin.js` - interaksi dummy
+- `assets/brands` - logo merchant/operator
+- `assets/images` - banner dan ilustrasi
+- `.htaccess` - fallback route untuk hosting Apache/Hostinger
 
-Jika PostgreSQL sudah tersedia:
+## Upload ke Hostinger
 
-```bash
-npm run db:push
-npm run db:seed
-```
+Zip isi folder `C:\pulsakeren`, lalu upload dan extract ke `public_html`.
 
-## Akun Demo
+Jangan upload:
 
-Pelanggan: `user@pulsakeren.com` / `password123`
+- `.git`
+- `.next`
+- `node_modules`
+- `src`
+- `prisma`
+- `package.json`
+- `package-lock.json`
 
-Admin: `admin@pulsakeren.com` / `password123`
-
-## Route Utama
-
-- `/` homepage dark futuristic.
-- `/checkout` checkout dan payment sandbox.
-- `/dashboard` dashboard user.
-- `/admin/login` login admin.
-- `/admin` Admin CMS.
-- `/api/products`, `/api/orders`, `/api/auth/login` REST API mock.
-
-## Deploy Hostinger Node.js
-
-```bash
-npm install
-npm run build
-npm run start
-```
-
-Isi environment dari `.env.example`, terutama `DATABASE_URL` jika memakai PostgreSQL.
+Project ini tidak butuh Node.js.

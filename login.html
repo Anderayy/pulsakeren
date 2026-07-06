@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - PulsaKeren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <a class="brand" href="index.html"><span class="brand-mark">PK</span><span><strong>PulsaKeren</strong><small>.com</small></span></a>
+      <section class="auth-card">
+        <span class="pill">Demo login</span>
+        <h1>Masuk ke PulsaKeren</h1>
+        <p>Halaman static. Tombol login akan membuka dashboard user, sedangkan admin membuka CMS demo.</p>
+        <form onsubmit="event.preventDefault(); location.href='dashboard.html';">
+          <label><span>Email / nomor HP</span><input type="text" value="budi@pulsakeren.com" /></label>
+          <label><span>Password</span><input type="password" value="password" /></label>
+          <button class="primary-btn full" type="submit">Masuk Dashboard</button>
+        </form>
+        <a class="secondary-btn full" href="admin.html">Masuk Admin CMS</a>
+      </section>
+    </main>
+  </body>
+</html>

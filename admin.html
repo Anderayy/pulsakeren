@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin CMS - PulsaKeren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dash-layout admin-layout">
+      <aside class="dash-sidebar light-sidebar">
+        <a class="brand" href="index.html"><span class="brand-mark">PK</span><span><strong>PulsaKeren</strong><small>Admin CMS</small></span></a>
+        <button class="dash-nav active" data-panel="adminDash">Dashboard</button>
+        <button class="dash-nav" data-panel="products">Produk</button>
+        <button class="dash-nav" data-panel="orders">Pesanan</button>
+        <button class="dash-nav" data-panel="payments">Pembayaran</button>
+        <button class="dash-nav" data-panel="customers">Pelanggan</button>
+        <button class="dash-nav" data-panel="promoCms">Promo</button>
+        <button class="dash-nav" data-panel="reports">Laporan</button>
+        <button class="dash-nav" data-panel="settings">System</button>
+      </aside>
+      <section class="dash-content">
+        <div class="dash-top"><div><span class="pill">Control panel static</span><h1>Admin PulsaKeren</h1></div><button class="primary-btn" id="exportBtn">Export Laporan</button></div>
+        <div class="panel active" id="adminDash"><div class="mini-grid"><article><strong>1.284</strong><span>Order hari ini</span></article><article><strong>Rp 428.5M</strong><span>Omzet bulanan</span></article><article><strong>99.8%</strong><span>Sukses</span></article></div></div>
+        <div class="panel" id="products"><h2>CRUD produk</h2><button class="primary-btn" id="addProduct">Tambah Produk</button><div class="list-card">Telkomsel 50K - Margin Rp 1.200</div><div class="list-card">GoPay 100K - Margin Rp 1.000</div></div>
+        <div class="panel" id="orders"><h2>Manajemen pesanan</h2><table><tr><th>ID</th><th>Produk</th><th>Status</th></tr><tr><td>PK-88421</td><td>XL Xtra Combo</td><td><span class="badge green">Sukses</span></td></tr><tr><td>PK-88422</td><td>BPJS Kesehatan</td><td><span class="badge">Pending</span></td></tr></table></div>
+        <div class="panel" id="payments"><h2>Pembayaran dan refund</h2><div class="list-card">QRIS settlement Rp 28.400.000</div><div class="list-card">Refund pending 3 transaksi</div></div>
+        <div class="panel" id="customers"><h2>Pelanggan dan akun bisnis</h2><div class="list-card">Budi Santoso - retail</div><div class="list-card">CV Kios Maju - business API</div></div>
+        <div class="panel" id="promoCms"><h2>Promo, voucher, banner</h2><div class="coupon">PKCASH30 aktif sampai 31 Juli</div><div class="coupon">Banner homepage: Promo E-Wallet</div></div>
+        <div class="panel" id="reports"><h2>Laporan keuangan</h2><p>Gross profit dummy: <strong>Rp 32.100.000</strong></p></div>
+        <div class="panel" id="settings"><h2>System health</h2><div class="list-card">Provider mock API online</div><div class="list-card">Maintenance mode: nonaktif</div></div>
+      </section>
+    </main>
+    <div class="toast-stack" id="toastStack"></div>
+    <script src="admin.js"></script>
+  </body>
+</html>

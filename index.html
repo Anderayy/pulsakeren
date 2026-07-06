@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulsaKeren.com - Marketplace Pulsa, Paket Data, PLN & Voucher</title>
+    <meta name="description" content="PulsaKeren adalah marketplace PPOB untuk pulsa, paket data, PLN, e-wallet, game, entertainment, dan tagihan digital." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="promo-strip">Cashback hingga 30% untuk transaksi pertama. Voucher otomatis aktif hari ini.</div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="PulsaKeren home">
+        <span class="brand-mark">PK</span>
+        <span><strong>PulsaKeren</strong><small>.com</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Menu utama">
+        <a href="#catalog" data-cat-link="Pulsa">Pulsa</a>
+        <a href="#catalog" data-cat-link="Data">Data</a>
+        <a href="#catalog" data-cat-link="PLN">PLN</a>
+        <a href="#catalog" data-cat-link="Bills">Bills</a>
+        <a href="#catalog" data-cat-link="E-Wallet">E-Wallet</a>
+        <a href="#catalog" data-cat-link="Games">Games</a>
+        <a href="#promo">Promo</a>
+      </nav>
+      <div class="header-actions">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Cari produk, invoice, nomor..." />
+        </label>
+        <a class="link-btn" href="login.html">Masuk</a>
+        <a class="primary-btn compact" href="login.html">Daftar</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero marketplace-hero">
+        <div class="hero-copy">
+          <span class="pill soft">Marketplace PPOB keluarga Indonesia</span>
+          <h1>Beli pulsa, bayar tagihan, dan kirim voucher dalam satu tempat.</h1>
+          <p>PulsaKeren menyatukan produk digital populer dengan alur checkout cepat, status transaksi jelas, dan harga dummy yang realistis untuk demo marketplace.</p>
+          <div class="hero-cta">
+            <a class="primary-btn" href="#quickOrder">Mulai Transaksi</a>
+            <a class="secondary-btn" href="#catalog">Lihat Katalog</a>
+          </div>
+          <div class="trust-row">
+            <span>1.2M+ transaksi</span>
+            <span>520K pengguna</span>
+            <span>99.8% sukses</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/images/pulsakeren-hero.png" alt="Ilustrasi transaksi digital PulsaKeren" loading="eager" />
+          <div class="floating-note note-top"><strong>Telkomsel 50K</strong><span>berhasil dibeli</span></div>
+          <div class="floating-note note-bottom"><strong>Saldo reseller</strong><span>Rp 1.250.000</span></div>
+        </div>
+      </section>
+
+      <section id="quickOrder" class="quick-shell">
+        <div class="section-heading compact-heading">
+          <span class="pill">Checkout cepat</span>
+          <h2>Transaksi tanpa pindah halaman</h2>
+          <p>Pilih kategori, produk, metode bayar, lalu simulasi invoice langsung muncul.</p>
+        </div>
+        <div class="quick-grid">
+          <div class="category-tabs" id="categoryTabs"></div>
+          <form class="quick-form" id="quickForm">
+            <label>
+              <span>Nomor / ID Pelanggan</span>
+              <input id="customerInput" type="text" placeholder="0812xxxx atau ID game" required />
+            </label>
+            <label>
+              <span>Produk dipilih</span>
+              <select id="productSelect"></select>
+            </label>
+            <label>
+              <span>Metode pembayaran</span>
+              <select id="paymentSelect">
+                <option>QRIS All Pay</option>
+                <option>GoPay</option>
+                <option>OVO</option>
+                <option>ShopeePay</option>
+                <option>BCA Virtual Account</option>
+                <option>Indomaret / Alfamart</option>
+              </select>
+            </label>
+            <button class="primary-btn full" type="submit">Buat Pesanan</button>
+          </form>
+          <aside class="invoice-card">
+            <span class="pill green">Estimasi checkout</span>
+            <h3 id="invoiceProduct">Telkomsel 50K</h3>
+            <dl>
+              <div><dt>Harga</dt><dd id="invoicePrice">Rp 50.650</dd></div>
+              <div><dt>Biaya admin</dt><dd>Rp 500</dd></div>
+              <div><dt>Promo</dt><dd class="discount">-Rp 1.000</dd></div>
+            </dl>
+            <div class="total-row"><span>Total</span><strong id="invoiceTotal">Rp 50.150</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="catalog" class="catalog-section">
+        <div class="section-heading">
+          <span class="pill">Produk populer</span>
+          <h2>Katalog lengkap seperti marketplace</h2>
+          <p>Logo operator dan merchant dipakai untuk identifikasi produk. Semua transaksi masih dummy static.</p>
+        </div>
+        <div class="market-grid" id="productGrid"></div>
+      </section>
+
+      <section id="promo" class="promo-section">
+        <div class="section-heading row-heading">
+          <div>
+            <span class="pill">Promo pilihan</span>
+            <h2>Kado promo untuk belanja digital</h2>
+          </div>
+          <a href="#catalog">Lihat semua promo</a>
+        </div>
+        <div class="promo-grid">
+          <article class="promo-card">
+            <img src="assets/images/promo-ewallet.png" alt="Promo e-wallet" loading="lazy" />
+            <div><strong>Cashback E-Wallet</strong><p>DANA, GoPay, OVO, dan ShopeePay mulai Rp 10.000.</p></div>
+          </article>
+          <article class="promo-card">
+            <img src="assets/images/promo-game.png" alt="Promo voucher game" loading="lazy" />
+            <div><strong>Mabar Lebih Hemat</strong><p>Diamond MLBB, Free Fire, PUBG, Steam, dan PlayStation.</p></div>
+          </article>
+          <article class="promo-card">
+            <img src="assets/images/promo-data.png" alt="Promo paket data" loading="lazy" />
+            <div><strong>Paket Data Favorit</strong><p>Telkomsel, Indosat, XL, AXIS, Tri, dan Smartfren.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-section">
+        <div class="info-panel">
+          <span class="pill">Live activity</span>
+          <h2>Dummy order yang terus bergerak</h2>
+          <p>Simulasi aktivitas pembeli membuat halaman terasa hidup tanpa backend.</p>
+          <div class="activity-list" id="activityList"></div>
+        </div>
+        <div class="info-panel tinted">
+          <span class="pill">Keuntungan</span>
+          <h2>Saldo reseller atau bayar langsung</h2>
+          <div class="compare-grid">
+            <div><strong>Saldo</strong><p>Cocok untuk repeat order dan agen. Biaya lebih stabil.</p></div>
+            <div><strong>Bayar langsung</strong><p>Cocok untuk pelanggan baru. QRIS, VA, e-wallet, dan retail.</p></div>
+            <div><strong>Bisnis</strong><p>API key, webhook, audit log, dan laporan bisa dibuat statis demo.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps-section">
+        <div class="section-heading">
+          <span class="pill">Cara transaksi</span>
+          <h2>Tiga langkah sederhana</h2>
+        </div>
+        <div class="steps-grid">
+          <article><span>1</span><strong>Pilih produk</strong><p>Cari pulsa, data, PLN, tagihan, game, atau entertainment.</p></article>
+          <article><span>2</span><strong>Checkout</strong><p>Masukkan nomor pelanggan dan pilih metode pembayaran.</p></article>
+          <article><span>3</span><strong>Tracking</strong><p>Status pesanan dummy bisa dilihat dari dashboard.</p></article>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-heading">
+          <span class="pill">Trust center</span>
+          <h2>Keamanan, FAQ, dan blog</h2>
+        </div>
+        <div class="article-grid">
+          <article><strong>Proteksi transaksi</strong><p>Validasi input, invoice, status order, dan notifikasi demo disiapkan untuk alur marketplace.</p></article>
+          <article><strong>FAQ pelanggan</strong><p>Apakah ini transaksi nyata? Tidak, halaman ini masih static demo tanpa payment gateway.</p></article>
+          <article><strong>Blog</strong><p>Tips memilih paket data, cara cek token PLN, dan strategi reseller PPOB.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>PulsaKeren.com</strong>
+        <p>Marketplace PPOB static untuk pulsa, paket data, PLN, e-wallet, game, entertainment, dan tagihan.</p>
+      </div>
+      <div><strong>Produk</strong><a href="#catalog">Pulsa</a><a href="#catalog">Data</a><a href="#catalog">Games</a></div>
+      <div><strong>Akun</strong><a href="login.html">Login</a><a href="dashboard.html">Dashboard</a><a href="admin.html">Admin CMS</a></div>
+      <div><strong>Bantuan</strong><a href="#quickOrder">Tracking</a><a href="#promo">Promo</a><a href="#catalog">Katalog</a></div>
+    </footer>
+
+    <div class="toast-stack" id="toastStack"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
