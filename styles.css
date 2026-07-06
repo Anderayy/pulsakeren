@@ -979,6 +979,7 @@ main > section,
   font-weight: 900;
 }
 .auth-card input,
+.auth-card select,
 .dash-content input {
   width: 100%;
   min-height: 56px;
@@ -987,6 +988,14 @@ main > section,
   border: 1px solid var(--line);
   background: #fff;
   outline: none;
+}
+
+.invoice-status {
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: #eafaf2;
+  color: #0d7d4f;
+  font-weight: 800;
 }
 
 .dash-layout {

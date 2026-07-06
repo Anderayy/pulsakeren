@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daftar Reseller - Pulsakerenzz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <section class="auth-visual">
+        <a class="brand" href="index.html"><span class="brand-bag">PK</span><strong>Pulsakerenzz</strong></a>
+        <p class="eyebrow">Program reseller</p>
+        <h1>Buka loket PPOB online dengan katalog siap jual.</h1>
+        <p>Daftar sebagai reseller untuk akses saldo, harga khusus, dashboard transaksi, invoice, dan katalog produk digital lengkap.</p>
+        <div class="auth-benefits">
+          <span>Harga reseller</span>
+          <span>Deposit saldo</span>
+          <span>Riwayat transaksi</span>
+          <span>Support WhatsApp</span>
+        </div>
+      </section>
+      <section class="auth-card">
+        <h1>Registrasi Reseller</h1>
+        <p>Isi data toko/loket. Setelah submit, tim admin akan follow up lewat WhatsApp.</p>
+        <form id="resellerForm">
+          <label><span>Nama pemilik</span><input required placeholder="Budi Santoso" /></label>
+          <label><span>Nomor WhatsApp</span><input required placeholder="0812-xxxx-xxxx" /></label>
+          <label><span>Nama toko / loket</span><input required placeholder="Kios Digital Budi" /></label>
+          <label><span>Kota operasional</span><input required placeholder="Bandung" /></label>
+          <label>
+            <span>Kebutuhan utama</span>
+            <select required>
+              <option value="">Pilih kebutuhan</option>
+              <option>Jual pulsa dan paket data</option>
+              <option>Loket tagihan PLN/BPJS/PDAM</option>
+              <option>Top up game dan e-wallet</option>
+              <option>Butuh API bisnis</option>
+            </select>
+          </label>
+          <button class="solid-link full" type="submit">Kirim Pendaftaran</button>
+        </form>
+        <p class="invoice-status" id="resellerStatus" hidden>Pendaftaran reseller terkirim. Admin akan menghubungi Anda via WhatsApp.</p>
+        <a class="outline-link full" href="login.html">Sudah punya akun? Masuk</a>
+      </section>
+    </main>
+    <script>
+      document.getElementById("resellerForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        document.getElementById("resellerStatus").hidden = false;
+        this.reset();
+      });
+    </script>
+  </body>
+</html>
